@@ -88,6 +88,7 @@ export default function CorporateHome() {
           </div>
 
           <div className="hidden md:flex items-center gap-9 text-sm font-medium text-zinc-700">
+             <a href="#" className="hover:text-blue-600 transition-colors">Home</a>
             <a href="#services" className="hover:text-blue-600 transition-colors">Services</a>
             <a href="#products" className="hover:text-blue-600 transition-colors">Products</a>
             <Link to="/about" className="hover:text-blue-600 transition-colors">

@@ -26,7 +26,7 @@ export default function AboutUs() {
                     <div className="hidden md:flex items-center gap-9 text-sm font-medium text-zinc-700">
                         <a href="/" className="hover:text-blue-600 transition-colors">Home</a>
                         <a href="/about" className="text-blue-600 font-semibold">About Us</a>
-                        <a href="#services" className="hover:text-blue-600 transition-colors">Services</a>
+                        <a href="/" className="hover:text-blue-600 transition-colors">Services</a>
                         <a href="/shop" className="hover:text-blue-600 transition-colors">Products</a>
                     </div>
 
