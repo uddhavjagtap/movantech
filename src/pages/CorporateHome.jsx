@@ -84,7 +84,6 @@ export default function CorporateHome() {
               className="w-18 h-14 object-contain"
               onError={(e) => { e.target.style.display = 'none'; }}
             />
-            <div className="w-11 h-11 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold">M</div>
           </div>
 
           <div className="hidden md:flex items-center gap-9 text-sm font-medium text-zinc-700">
