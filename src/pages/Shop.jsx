@@ -4,6 +4,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import ProductList from '../components/ProductList';
+import logo from '../assets/logo.jpg';  // Make sure this path is correct
 
 export default function Shop() {
   const { cartCount, setIsCartOpen } = useContext(CartContext);
@@ -49,24 +50,30 @@ export default function Shop() {
       {/* Navbar */}
       <nav className="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
-          <div 
-            className="flex items-center gap-3 cursor-pointer" 
+          <div
+            className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate('/')}
           >
-            <div className="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold">M</div>
-            <h1 className="text-3xl font-semibold tracking-tight">Movantech</h1>
+            <div className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="Movantech Logo"
+                className="w-18 h-14 object-contain"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            </div>
           </div>
 
           <div className="flex items-center gap-6">
-            <button 
-              onClick={() => navigate('/')} 
+            <button
+              onClick={() => navigate('/')}
               className="hidden md:block text-sm font-medium text-zinc-600 hover:text-blue-600"
             >
               ← Back To Home
             </button>
 
-            <button 
-              onClick={() => setIsCartOpen(true)} 
+            <button
+              onClick={() => setIsCartOpen(true)}
               className="flex items-center gap-2 text-zinc-700 hover:text-blue-600 relative transition-colors"
             >
               <i className="fa-solid fa-cart-shopping text-2xl"></i>
@@ -78,8 +85,8 @@ export default function Shop() {
               )}
             </button>
 
-            <button 
-              onClick={() => navigate('/admin')} 
+            <button
+              onClick={() => navigate('/admin')}
               className="px-6 py-2.5 bg-zinc-900 text-white rounded-3xl hover:bg-black transition"
             >
               Admin
@@ -88,10 +95,10 @@ export default function Shop() {
         </div>
       </nav>
 
-      <div className="max-w-7xl sm:px-6 py-8" style={{width:"100%" ,maxWidth:"100%"}}>
+      <div className="max-w-7xl sm:px-6 py-8" style={{ width: "100%", maxWidth: "100%" }}>
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Our Products</h1>
-          
+
           <button
             onClick={() => setShowMobileFilters(true)}
             className="lg:hidden flex items-center gap-2 px-5 py-3 bg-white border rounded-2xl"
@@ -139,8 +146,8 @@ export default function Shop() {
               </div>
             </div>
 
-            <button 
-              onClick={clearFilters} 
+            <button
+              onClick={clearFilters}
               className="text-red-500 text-sm font-medium hover:underline"
             >
               Clear All Filters
@@ -166,8 +173,8 @@ export default function Shop() {
               <h3 className="text-2xl font-semibold">Filters</h3>
               <button onClick={() => setShowMobileFilters(false)} className="text-4xl">×</button>
             </div>
-            <button 
-              onClick={() => setShowMobileFilters(false)} 
+            <button
+              onClick={() => setShowMobileFilters(false)}
               className="mt-8 w-full py-4 bg-blue-600 text-white rounded-2xl font-medium"
             >
               Apply Filters
