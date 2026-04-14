@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';   // ← Add this import
 import logo from '../assets/logo.png';  // Make sure this path is correct
+import lightLogo from '../assets/light-logo.png';  // Make sure this path is correct
 
 export default function CorporateHome() {
   const navigate = useNavigate();
@@ -67,8 +68,8 @@ export default function CorporateHome() {
   ];
 
   const handleCategoryClick = (category) => {
-    navigate('/shop', { 
-      state: { preSelectedCategory: category } 
+    navigate('/shop', {
+      state: { preSelectedCategory: category }
     });
   };
 
@@ -89,7 +90,9 @@ export default function CorporateHome() {
           <div className="hidden md:flex items-center gap-9 text-sm font-medium text-zinc-700">
             <a href="#services" className="hover:text-blue-600 transition-colors">Services</a>
             <a href="#products" className="hover:text-blue-600 transition-colors">Products</a>
-            <a href="#about" className="hover:text-blue-600 transition-colors">About Us</a>
+            <Link to="/about" className="hover:text-blue-600 transition-colors">
+              About Us
+            </Link>
           </div>
 
           <button
@@ -192,14 +195,97 @@ export default function CorporateHome() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-zinc-950 py-20 border-t border-zinc-800">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold">M</div>
-            <p className="text-3xl font-semibold text-white">Movantech Systems</p>
+      {/* Beautiful Footer */}
+      <footer className="bg-zinc-950 border-t border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 pt-16 pb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+
+            {/* Company Info */}
+            <div className="lg:col-span-5">
+              <div className="flex items-center gap-3">
+                <img
+                  src={lightLogo}
+                  alt="Movantech Logo"
+                  className="w-18 h-14 object-contain"
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
+
+              <p className="text-zinc-400 leading-relaxed max-w-md">
+                Innovative IT solutions for modern businesses. Premium hardware, software,
+                and expert services across India and the Middle East.
+              </p>
+
+              <div className="mt-8 space-y-3 text-sm">
+                <p className="flex items-center gap-3 text-zinc-400">
+                  📍 <span>Mumbai, Maharashtra, India</span>
+                </p>
+                <p className="flex items-center gap-3 text-zinc-400">
+                  ✉️ <a href="mailto:info@movantech.com" className="hover:text-blue-400 transition-colors">info@movantech.com</a>
+                </p>
+                <p className="flex items-center gap-3 text-zinc-400">
+                  📞 <span>+91 99586 23107</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="lg:col-span-2">
+              <h4 className="text-white font-semibold mb-5 text-lg">Quick Links</h4>
+              <ul className="space-y-3 text-zinc-400">
+                <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Services</a></li>
+                <li><a href="#products" className="hover:text-white transition-colors">Products</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div className="lg:col-span-2">
+              <h4 className="text-white font-semibold mb-5 text-lg">Services</h4>
+              <ul className="space-y-3 text-zinc-400">
+                <li><a href="#" className="hover:text-white transition-colors">IT Infrastructure</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Cyber Security</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Surveillance Systems</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Audio-Video Solutions</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Cloud Services</a></li>
+              </ul>
+            </div>
+
+            {/* Products */}
+            <div className="lg:col-span-3">
+              <h4 className="text-white font-semibold mb-5 text-lg">Products</h4>
+              <ul className="space-y-3 text-zinc-400">
+                <li><a href="#" className="hover:text-white transition-colors">Servers & Storage</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Networking Solutions</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Desktops & Laptops</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Security & Surveillance</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Software Licenses</a></li>
+              </ul>
+            </div>
           </div>
-          <p className="text-zinc-400">© 2026 Movantech Systems • Mumbai, Maharashtra</p>
-          <p className="text-zinc-500 mt-2">Complete IT Solutions Provider</p>
+
+          {/* Bottom Bar */}
+          <div className="mt-16 pt-8 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 text-sm">
+            <p className="text-zinc-500">
+              © {new Date().getFullYear()} Movantech Systems. All Rights Reserved.
+            </p>
+
+            <div className="flex items-center gap-6 text-zinc-400">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
+              <a href="#" className="hover:text-white transition-colors">Support</a>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-5">
+              <a href="#" className="text-zinc-400 hover:text-blue-400 transition-colors text-xl">𝕏</a>
+              <a href="#" className="text-zinc-400 hover:text-blue-400 transition-colors text-xl">↳</a>
+              <a href="#" className="text-zinc-400 hover:text-blue-400 transition-colors text-xl">in</a>
+              <a href="#" className="text-zinc-400 hover:text-blue-400 transition-colors text-xl">📸</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

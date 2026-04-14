@@ -33,6 +33,7 @@ import Shop from './pages/Shop';
 import AdminLogin from './pages/AdminLogin';
 import CartSidebar from './components/CartSidebar';
 import AdminDashboard from './pages/AdminDashboard';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/" element={<CorporateHome />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
 
