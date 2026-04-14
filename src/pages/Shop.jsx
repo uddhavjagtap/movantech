@@ -4,7 +4,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import ProductList from '../components/ProductList';
-import logo from '../assets/logo.jpg';  // Make sure this path is correct
+import logo from '../assets/logo.png';  // Make sure this path is correct
 
 export default function Shop() {
   const { cartCount, setIsCartOpen } = useContext(CartContext);
