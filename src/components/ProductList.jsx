@@ -167,7 +167,7 @@ export default function ProductList({
       </div>
 
       {/* Products Grid - Full Width & Highly Responsive */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 md:gap-8 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-6 gap-6 md:gap-8 w-full">
         {filteredProducts.map((product) => (
           <ProductCard 
             key={product.id} 
